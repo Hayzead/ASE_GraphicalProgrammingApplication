@@ -31,13 +31,23 @@ namespace ASE_GraphicalProgrammingApplication
                 string[] newCoordinate = input.Split(' ');
                 switch (newCoordinate[0])
                 {
+                    case "Clear":
+                        e.Graphics.Clear(System.Drawing.Color.White);
+                        break;
                     case "Circle":
                         new Circle(draw).drawCircle(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat));
                         break;
                     case "Rectangle":
                         new Rectangle(draw).drawRectangle(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat),
                       int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat));
-
+                        break; 
+                    case "drawTo":
+                        new DrawLine(draw).drawLine(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat),
+                      int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat));
+                        break;
+                    case "moveTo":
+                        draw.x = int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat);
+                        draw.y = int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat);
                         break;
                     case "Fill":
                         switch (newCoordinate[1])
