@@ -48,6 +48,7 @@ namespace ASE_GraphicalProgrammingApplication
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(809, 600);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -65,13 +66,16 @@ namespace ASE_GraphicalProgrammingApplication
             this.button1.TabIndex = 2;
             this.button1.Text = "Run Command";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.command);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.Location = new System.Drawing.Point(1062, 261);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(753, 600);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // menuStrip1
             // 
@@ -97,13 +101,13 @@ namespace ASE_GraphicalProgrammingApplication
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(200, 44);
             this.loadToolStripMenuItem.Text = "Load";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(200, 44);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // button2

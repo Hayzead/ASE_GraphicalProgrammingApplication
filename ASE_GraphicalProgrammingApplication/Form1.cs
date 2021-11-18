@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,53 @@ namespace ASE_GraphicalProgrammingApplication
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            string userInput = textBox1.Text;
+            string[] userInputArray = userInput.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            DrawingClass draw = new DrawingClass();
+            draw.x = 0;
+            draw.y = 0;
+            draw.color = Pens.Black;
+            foreach (string input in userInputArray)
+            {
+                string[] newCoordinate = input.Split(' ');
+                switch (newCoordinate[0])
+                {
+                    case "Circle":
+                        new Circle(draw).drawCircle(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat));
+                        break;
+
+                    case "Fill":
+                        switch (newCoordinate[1])
+                        {
+                            case "on":
+                                draw.fill = true;
+                                break;
+                            case "off":
+                                draw.fill = false;
+                                break;
+                        }
+                        break;
+
+                    default:
+                        // code block
+                        break;
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void command(object sender, EventArgs e)
+        {
+            panel1.Paint += new PaintEventHandler(panel1_Paint);
+            panel1.Refresh();
         }
     }
 }
