@@ -34,7 +34,11 @@ namespace ASE_GraphicalProgrammingApplication
                     case "Circle":
                         new Circle(draw).drawCircle(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat));
                         break;
+                    case "Rectangle":
+                        new Rectangle(draw).drawRectangle(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat),
+                      int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat));
 
+                        break;
                     case "Fill":
                         switch (newCoordinate[1])
                         {
@@ -45,7 +49,7 @@ namespace ASE_GraphicalProgrammingApplication
                                 draw.fill = false;
                                 break;
                         }
-                        break;
+                        break; 
 
                     default:
                         // code block

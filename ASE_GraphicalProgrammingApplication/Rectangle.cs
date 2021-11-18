@@ -8,25 +8,24 @@ using System.Windows.Forms;
 
 namespace ASE_GraphicalProgrammingApplication
 {
-    class Circle : DrawingClass
+    class Rectangle : DrawingClass
     {
-        public void drawCircle(PaintEventArgs e, int radius)
+        public void drawRectangle(PaintEventArgs e, int width, int height)
         {
-
             if (fill)
             {
-                e.Graphics.FillEllipse(solid, x, y, radius, radius);
+                e.Graphics.FillRectangle(solid, x, y, width, height);
             }
             else
             {
-                e.Graphics.DrawEllipse(color, x, y, radius, radius);
+                e.Graphics.DrawRectangle(color, x, y, width, height);
             }
         }
-        public Circle(DrawingClass d)
+        public Rectangle(DrawingClass d)
         {
             this.x = d.x;
             this.y = d.y;
-            color = Pens.Black;
+            this.color = d.color;
             this.fill = d.fill;
             this.solid = new SolidBrush(d.color.Color);
         }
