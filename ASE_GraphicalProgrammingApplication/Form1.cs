@@ -86,6 +86,10 @@ namespace ASE_GraphicalProgrammingApplication
                         new Triangle(draw).drawPolygon(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat),
                       int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat)); 
                         break;
+                    case "Reset":
+                        draw.x = 0;
+                        draw.y = 0;
+                        draw.color = Pens.Black;
                     default: 
                         break;
                 }
