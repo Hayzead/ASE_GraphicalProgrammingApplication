@@ -59,7 +59,28 @@ namespace ASE_GraphicalProgrammingApplication
                                 draw.fill = false;
                                 break;
                         }
-                        break; 
+                        break;
+                    case "Pen":
+                        switch (newCoordinate[1])
+                        {
+                            case "Black":
+                                draw.color = Pens.Black;
+                                break;
+                            case "Green":
+                                draw.color = Pens.Green;
+                                break;
+                            case "Red":
+                                draw.color = Pens.Red;
+                                break;
+                            case "Brown":
+                                draw.color = Pens.Brown;
+                                break;
+                            default:
+                                draw.color = Pens.Black;
+                                break;
+
+                        }
+                        break;
 
                     default:
                         // code block
