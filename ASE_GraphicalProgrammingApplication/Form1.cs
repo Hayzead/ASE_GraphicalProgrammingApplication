@@ -100,6 +100,55 @@ namespace ASE_GraphicalProgrammingApplication
         {
             panel1.Paint += new PaintEventHandler(panel1_Paint);
             panel1.Refresh();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string input = textBox1.Text;
+            string[] newCoordinate = input.Split(' ');
+
+            if (newCoordinate.Length >= 1)
+            {
+                switch (newCoordinate[0])
+                {
+                    case "moveTo":
+
+                    case "Rectangle":
+
+                    case "Triangle":
+
+                    case "drawTo":
+                        if (newCoordinate.Length != 3)
+                        {
+                            label1.Text = "Invalid Syntax";
+                        }
+                        else
+                        {
+                            label1.Text = "Valid Syntax";
+                        }
+                        break;
+
+                    case "Circle":
+                        if (newCoordinate.Length != 2)
+                        {
+                            label1.Text = "This Invalid Syntax";
+                        }
+                        else
+                        {
+                            label1.Text = "Valid Syntax";
+                        }
+                        break;
+                    default:
+                        label1.Text = "Invalid Syntax";
+                        break;
+                }
+            }
+            else
+            {
+                label1.Text = "Invalid Syntax";
+            }
         }
     }
-}
+    }
+
