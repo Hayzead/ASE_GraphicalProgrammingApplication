@@ -81,9 +81,11 @@ namespace ASE_GraphicalProgrammingApplication
 
                         }
                         break;
-
-                    default:
-                        // code block
+                    case "Triangle":
+                        new Triangle(draw).drawPolygon(e, int.Parse(newCoordinate[1], CultureInfo.InvariantCulture.NumberFormat),
+                      int.Parse(newCoordinate[2], CultureInfo.InvariantCulture.NumberFormat)); 
+                        break;
+                    default: 
                         break;
                 }
             }
