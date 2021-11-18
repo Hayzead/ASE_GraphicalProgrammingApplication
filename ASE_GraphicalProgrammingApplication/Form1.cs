@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,9 @@ namespace ASE_GraphicalProgrammingApplication
 
         private void button2_Click(object sender, EventArgs e)
         {
+            panel1.Paint += new PaintEventHandler(panel1_Paint);
+            panel1.Refresh();
+
             string input = textBox1.Text;
             string[] newCoordinate = input.Split(' ');
 
@@ -148,6 +152,35 @@ namespace ASE_GraphicalProgrammingApplication
             {
                 label1.Text = "Invalid Syntax";
             }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if ((myStream = openFileDialog1.OpenFile()) != null)
+                {
+                    string strfilename = openFileDialog1.FileName;
+                    string filetext = File.ReadAllText(strfilename); 
+                    textBox1.Text = filetext;
+                }
+
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
+                    using (StreamWriter sw = new StreamWriter(s))
+                    {
+                        sw.Write(textBox1.Text);
+                    }
+                } 
         }
     }
     }
