@@ -90,6 +90,7 @@ namespace ASE_GraphicalProgrammingApplication
                         draw.x = 0;
                         draw.y = 0;
                         draw.color = Pens.Black;
+                        break;
                     default: 
                         break;
                 }
